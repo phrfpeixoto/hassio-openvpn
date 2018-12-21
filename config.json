@@ -1,18 +1,32 @@
 {
-    "name": "OpenVPN Server",
-    "version": "1",
-    "slug": "openvpn",
-    "description": "Runs a openvpn server",
+    "name": "OpenVPN Client",
+    "version": "0.1",
+    "slug": "openvpn-client",
+    "description": "Connect your hass.io instance to an existing OpenVPN server",
     "startup": "before",
     "boot": "auto",
     "host_network": true,
     "privileged": ["NET_ADMIN"],
     "options": {
-      "config": "",
-      "key": ""
+      "server": "",
+      "port": "",
+      "ns_cert_type": "server",
+      "extra-config": "",
+      "pki": {
+        "ca.crt": "",
+        "client.crt": "",
+        "client.key": ""
+      }
     },
     "schema": {
-      "config": "str",
-      "key": "str"
+      "server": "str",
+      "port": "port",
+      "ns_cert_type": "str",
+      "extra_config": "str",
+      "pki": {
+        "ca.crt": "str",
+        "client.crt": "str",
+        "client.key": "str"
+      }
     }
   }

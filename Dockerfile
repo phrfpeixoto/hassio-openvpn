@@ -1,11 +1,11 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
+COPY rootfs /
+
 ENV LANG C.UTF-8
 
 RUN apk add --update openvpn jq
+RUN chmod a+x /bin/run.sh
 
-COPY run.sh /
-RUN chmod a+x /run.sh
-
-CMD [ "/run.sh" ]
+CMD [ "/bin/run.sh" ]
